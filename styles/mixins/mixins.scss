@@ -1,0 +1,302 @@
+@mixin customButton($width, $heigth) {
+    height: clamp(50px, $heigth, 70px);
+    width: clamp(200px, $width, 280px);
+    background-color: var(--default-color-two);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 3vw, 25px);
+
+    p {
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: all 0.4s ease-in-out;
+        color: black;
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        left: -3px;
+        width: 0;
+        height: 100%;
+        background-color: black;
+        z-index: 1;
+        transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        p {
+            color: var(--default-color-two);
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
+}
+
+@mixin productCard($top) {
+    height: clamp(450px, 100%, 550px);
+    width: clamp(260px, 25%, 500px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    position: relative;
+    top: $top;
+
+    &.hidden {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    img {
+        display: block;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        filter: drop-shadow(-4px 6px 4px var(--default-color-one));
+    }
+
+    .product-card_text-part {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 20px auto;
+
+        h4 {
+            color: var(--default-color-one);
+            font-size: calc(20px + 4 * (100vw / 1912));
+            font-weight: 600;
+        }
+
+        p {
+            font-weight: 400;
+        }
+    }
+
+    a {
+        margin-top: auto;
+        @include customButton(90%, 7svh);
+    }
+}
+
+
+@mixin headerStyle {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: clamp(90px, 5svh, 150px);
+    background-color: #a0906b;
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 87%;
+        height: 100%;
+
+        .header-logotypy {
+            width: clamp(48px, 5%, 90px);
+            aspect-ratio: 1 / 1;
+            display: block;
+        }
+
+        a {
+            color: white;
+            font-weight: 600;
+            font-size: clamp(1.25rem, 1.12rem + 0.62vw, 1.87rem);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .content_social-media-list {
+            width: 11%;
+            max-width: 220px;
+            min-width: 147px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content_menu-burger {
+            display: none;
+            width: 11%;
+            min-width: 50px;
+            height: auto;
+            cursor: pointer;
+
+            span {
+                background-color: white;
+                height: 2.5px;
+                width: 100%;
+                margin-bottom: 10px;
+                transition: all 0.4s;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &.open-menu span {
+                position: relative;
+
+                &:nth-child(1) {
+                    rotate: 44deg;
+                    top: 17px;
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &:nth-child(3) {
+                    rotate: -44deg;
+                    bottom: 11px;
+                }
+            }
+        }
+
+        .content_content-open-menu-burger {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #796a47;
+            width: 100%;
+            padding: clamp(25px, 5svh, 45px) 0;
+            text-align: center;
+            margin: 0 auto;
+            z-index: 100;
+            transition: all 0.4s;
+
+            &.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            a {
+                margin-bottom: clamp(16px, 3svh, 30px);
+            }
+
+            .content_social-media-list {
+                width: 20%;
+                min-width: 180px;
+                display: flex;
+                justify-content: space-between;
+                margin: 0 auto;
+            }
+        }
+
+        .social-media-list_logo {
+            width: 20%;
+            max-width: 90px;
+            aspect-ratio: 1 / 1;
+            transition: all 0.4s;
+
+            &:hover {
+                scale: 1.2;
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (max-width: 690px) {
+        .header-content {
+            display: flex;
+            align-items: center;
+
+            a {
+                display: none;
+            }
+
+            .content_social-media-list {
+                display: none;
+            }
+
+            .content_menu-burger {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content_content-open-menu-burger {
+                a {
+                    display: inline-block;
+                }
+            }
+        }
+
+    }
+}
+
+@mixin footerStyle {
+    width: 100vw;
+    height: auto;
+    background-color: #a0906b;
+    display: flex;
+    align-items: start;
+    padding: clamp(30px, 7vw, 80px);
+    gap: clamp(25px, 8vw, 90px);
+
+    .footer_logo {
+        width: clamp(50px, 15%, 120px);
+        aspect-ratio: 1 / 1;
+    }
+
+    .footer_text-content {
+        color: white;
+        display: flex;
+        align-items: start;
+        gap: 60px;
+
+        .text-content_links-navigation a {
+            font-weight: 600;
+            color: white;
+            font-size: calc(21px + 0.2615062762vw);
+            text-decoration: none;
+        }
+
+        .text-content_our-data {
+            margin: 0;
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-size: calc(19px + 0.1569037657vw);
+                font-weight: 500;
+                margin-bottom: 17px;
+            }
+        }
+    }
+
+    @media (max-width: 830px) {
+        .footer_logo {
+            display: none;
+        }
+    }
+
+    @media (max-width: 630px) {
+        .footer_text-content {
+            flex-direction: column;
+        }
+    }
+}
