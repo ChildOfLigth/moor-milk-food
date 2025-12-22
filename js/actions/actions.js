@@ -22,7 +22,7 @@ function createNavLink(elWithLinks) {
             
         case "/moormilk-food-cat/assortement.html": {
             links.forEach((a) => {
-                a.href = "/moormilk-food-cat/";
+                a.href = "/moormilk-food-cat/index.html";
                 a.textContent = "Головна сторінка";
             });
             break;
