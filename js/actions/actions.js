@@ -7,30 +7,29 @@ function returnCategory(oldCategory) {
 
 function createNavLink(elWithLinks) {
     const header = document.querySelector(elWithLinks);
-    const links = header.querySelectorAll("a");
+    if (!header) return;
 
+    const links = header.querySelectorAll("a");
     const pagePath = window.location.pathname;
 
     switch (pagePath) {
-       case "/moormilk-food-cat/":
-       case "/moormilk-food-cat/index.html":
-         links.forEach((a) => {
-            a.href = "/moormilk-food-cat/assortement.html";
-            a.textContent = "Каталог товарів";
-           });
-           break;
-            
-        case "/moormilk-food-cat/assortement.html": {
+        case "/moormilk-food-cat/":
+        case "/moormilk-food-cat/index.html":
+            links.forEach((a) => {
+                a.href = "/moormilk-food-cat/assortement.html";
+                a.textContent = "Каталог товарів";
+            });
+            break;
+
+        case "/moormilk-food-cat/assortement.html":
             links.forEach((a) => {
                 a.href = "/moormilk-food-cat/index.html";
                 a.textContent = "Головна сторінка";
             });
             break;
-        };
-        
-        default: return "";
     }
 }
+
 
 function sendCurrentProductData(arrayWithProduct, parrentBlock, classProdCard) {
     parrentBlock.addEventListener("click", (e) => {
