@@ -9,8 +9,9 @@ function createNavLink(elWithLinks) {
     const header = document.querySelector(elWithLinks);
     const links = header.querySelectorAll("a");
 
-    const page = window.location.pathname.split('/').pop();
-    switch (page) {
+    const pagePath = window.location.pathname.split('/').pop();
+    console.log(pagePath);
+    switch (pagePath) {
         case "index.html": {
             links.forEach((a) => {
                 a.href = "assortement.html";
