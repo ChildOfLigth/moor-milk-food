@@ -12,14 +12,14 @@ function createNavLink(elWithLinks) {
     const pagePath = window.location.pathname;
 
     switch (pagePath) {
-        case "/moormilk-food-cat/": {
-            links.forEach((a) => {
-                a.href = "/moormilk-food-cat/assortement.html";
-                a.textContent = "Каталог товарів";
-            });
-            break;
-        };
-
+       case "/moormilk-food-cat/":
+       case "/moormilk-food-cat/index.html":
+         links.forEach((a) => {
+            a.href = "/moormilk-food-cat/assortement.html";
+            a.textContent = "Каталог товарів";
+           });
+           break;
+            
         case "/moormilk-food-cat/assortement.html": {
             links.forEach((a) => {
                 a.href = "/moormilk-food-cat/";
