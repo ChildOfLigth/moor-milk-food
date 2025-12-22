@@ -14,8 +14,15 @@ const observerForProdList = new IntersectionObserver((entries) => {
 observerForProdList.observe(product_list);
 
 sendCurrentProductData(dataProducts, product_list, ".products-list_product-card");
-createNavLink("header");
-createNavLink("footer");
+
+window.addEventListener("DOMContentLoaded", () => {
+    createNavLink("header");
+});
+
+window.addEventListener("pageshow", () => {
+    createNavLink("header");
+});
+
 
 const menu_burger = document.querySelector(".content_menu-burger");
 menu_burger.onclick = () => {
