@@ -9,7 +9,8 @@ function createNavLink(elWithLinks) {
     const header = document.querySelector(elWithLinks);
     const links = header.querySelectorAll("a");
 
-    const pagePath = window.location.pathname.split('/').pop();
+    const pagePath = window.location.pathname;
+    console.log(pagePath);
 
     switch (pagePath) {
         case "index.html": {
