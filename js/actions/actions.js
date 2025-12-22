@@ -10,18 +10,17 @@ function createNavLink(elWithLinks) {
     const links = header.querySelectorAll("a");
 
     const pagePath = window.location.pathname;
-    console.log(pagePath);
 
     switch (pagePath) {
-        case "index.html": {
+        case "/moormilk-food-cat/": {
             links.forEach((a) => {
-                a.href = "assortement.html";
+                a.href = "/moormilk-food-cat/assortement.html";
                 a.textContent = "Каталог товарів";
             });
             break;
         };
 
-        case "assortement.html": {
+        case "/moormilk-food-cat/assortement.html": {
             links.forEach((a) => {
                 a.href = "index.html";
                 a.textContent = "Головна сторінка";
