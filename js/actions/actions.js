@@ -5,32 +5,6 @@ function returnCategory(oldCategory) {
     };
 };
 
-function createNavLink(elWithLinks) {
-    const header = document.querySelector(elWithLinks);
-    if (!header) return;
-
-    const links = header.querySelectorAll("a");
-    const pagePath = window.location.pathname;
-
-    switch (pagePath) {
-        case "/moormilk-food-cat/":
-        case "/moormilk-food-cat/index.html":
-            links.forEach((a) => {
-                a.href = "/moormilk-food-cat/assortement.html";
-                a.textContent = "Каталог товарів";
-            });
-            break;
-
-        case "/moormilk-food-cat/assortement.html":
-            links.forEach((a) => {
-                a.href = "/moormilk-food-cat/index.html";
-                a.textContent = "Головна сторінка";
-            });
-            break;
-    }
-}
-
-
 function sendCurrentProductData(arrayWithProduct, parrentBlock, classProdCard) {
     parrentBlock.addEventListener("click", (e) => {
         if (!e.target.closest("a")) return;
@@ -44,4 +18,18 @@ function sendCurrentProductData(arrayWithProduct, parrentBlock, classProdCard) {
 
 }
 
-export { returnCategory, createNavLink, sendCurrentProductData };
+function functionForMenuBurger() {
+    const menu_burger = document.querySelector(".header-content_menu-burger");
+    menu_burger.onclick = () => {
+        menu_burger.classList.toggle("open-menu");
+
+        const block_with_content = document.querySelector(
+            ".header-content_content-open-menu-burger"
+        );
+        block_with_content.classList.toggle("show");
+    };
+}
+
+
+
+export { returnCategory, sendCurrentProductData, functionForMenuBurger };

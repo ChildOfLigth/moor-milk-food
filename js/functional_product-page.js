@@ -2,6 +2,9 @@ import { returnCategory } from "./actions/actions.js";
 
 const data = JSON.parse(sessionStorage.getItem("productData"));
 
+const globalTitle = document.querySelector("title");
+globalTitle.textContent = data.name;
+
 const blockForProductData = document.querySelector(".info-product");
 blockForProductData.innerHTML = `
 <div class="info-product_description">

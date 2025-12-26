@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ua">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles_product-page.css">
-    <link rel="stylesheet" href="styles/resetBrowserStyles.css" />
+    <link rel="stylesheet" href="../styles/styles_product-page.css">
+    <link rel="stylesheet" href="../styles/resetBrowserStyles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title></title>
 </head>
 
 <body>
-    <a href="assortement.html" title="На попередню сторінку" class="navigate-to-prev-page">
-        <img src="imgs/icons/arrow.svg" alt="На сторінку з ассортиментом товару" />
+    <a onclick="history.back()" title="На попередню сторінку" class="navigate-to-prev-page">
+        <img src="../imgs/icons/arrow.svg" alt="На сторінку з ассортиментом товару" />
     </a>
 
     <article class="info-product"></article>
-    <script src="js/functional_product-page.js" type="module"></script>
+    <script src="../js/functional_product-page.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -29,7 +29,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

@@ -1,23 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-@function pxConvertToRem($px) {
-  @return ($px / 16) * 1rem;
-}
-
-@function remConvertToPx($rem) {
-  @return ($rem / 1rem) * 16px;
-}
-
-@function createAdaptiveFontSize($maxSize, $minSize, $maxWidth: 1920, $minWidth: 320) {
-  $vw: ($maxSize - $minSize) / ($maxWidth - $minWidth) * 100;
-  $rem: $minSize - ($minWidth * $vw / 100);
-
-  @return clamp(#{$minSize}rem, calc(#{$rem}rem + #{$vw}vw), #{$maxSize}rem);
-}
-
 :root {
   --default-color-one: #a0906b;
   --default-color-two: #bda778;
+  --fsz-for-link-text: clamp(0.9rem, 0.80rem + 0.47vw, 1.37rem);
 }
 
 * {
@@ -46,7 +32,6 @@ a:active {
 
 html,
 body {
-  height: 100%;
   width: 100%;
   line-height: 1;
   font-size: 1rem;
@@ -55,6 +40,14 @@ body {
   -webkit-text-size-adjust: 100%;
   font-family: "Raleway", sans-serif;
   overflow-x: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+main {
+  flex: 1;
 }
 
 input,
@@ -106,6 +99,10 @@ h2 {
 
 h3 {
   font-size: clamp(1.5rem, 1.38rem + 0.56vw, 2.06rem);
+}
+
+h4 {
+  font-size: clamp(1.12rem, 0.98rem + 0.68vw, 1.81rem);
 }
 
 p {

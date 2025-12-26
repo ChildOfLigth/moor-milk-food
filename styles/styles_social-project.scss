@@ -1,0 +1,81 @@
+@use './mixins/mixins.scss' as *;
+
+header {
+    @include headerStyle;
+}
+
+.social-project {
+    width: 85%;
+    margin: 0 auto;
+    padding: clamp(25px, 4vw, 50px) 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: clamp(30px, 6vw, 100px);
+
+    .social-project_present-text {
+        width: 100%;
+        display: inline-block;
+
+        h1 {
+            color: var(--default-color-one);
+            margin-bottom: clamp(15px, 3vw, 30px);
+        }
+    }
+
+    .social-project_info-card {
+        h2 {
+            font-weight: 600;
+            color: var(--default-color-one);
+            margin-bottom: clamp(15px, 3vw, 30px);
+        }
+
+        ul {
+            li {
+                font-size: clamp(0.9rem, 0.73rem + 0.85vw, 1.75rem);
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .social-project_supportive-words {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(28px, 3vw, 50px);
+
+        p {
+            display: inline-block;
+            width: 45%;
+            line-height: 1.5;
+
+            span {
+                font-weight: 600;
+                color: var(--default-color-one);
+            }
+        }
+
+        img {
+            width: 45%;
+            min-width: 200px;
+            aspect-ratio: 1 / 1;
+        }
+    }
+}
+
+footer {
+    @include footerStyle;
+}
+
+@media (max-width: 640px) {
+    .social-project {
+        .social-project_supportive-words {
+            flex-direction: column;
+
+            p {
+                width: 100%;
+            }
+        }
+    }
+}

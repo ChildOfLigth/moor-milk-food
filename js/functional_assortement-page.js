@@ -1,5 +1,5 @@
 import { dataProducts } from './productCatalog.js';
-import { returnCategory, sendCurrentProductData, createNavLink } from './actions/actions.js';
+import { returnCategory, sendCurrentProductData, functionForMenuBurger } from './actions/actions.js';
 
 const productCatalog = document.querySelector(".product-assortment_products");
 productCatalog.innerHTML = dataProducts.map((prod, index) => `
@@ -18,5 +18,4 @@ productCatalog.innerHTML = dataProducts.map((prod, index) => `
 `).join("");
 
 sendCurrentProductData(dataProducts, productCatalog, ".products_product-card");
-createNavLink("header");
-createNavLink("footer");
+functionForMenuBurger();
