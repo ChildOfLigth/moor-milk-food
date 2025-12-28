@@ -1,0 +1,12 @@
+@function adaptiveSize($minRem, $maxRem, $minVw: 320, $maxVw: 1920, $rootPx: 16) {
+  $minPx: $minRem * $rootPx;
+  $maxPx: $maxRem * $rootPx;
+
+  $slopePxPerVw: ($maxPx - $minPx) / ($maxVw - $minVw) * 100;
+
+  $interceptPx: $minPx - ($minVw * $slopePxPerVw / 100);
+
+  @return clamp(#{$minRem}rem,
+    calc(#{$interceptPx}px + #{$slopePxPerVw}vw),
+    #{$maxRem}rem);
+}

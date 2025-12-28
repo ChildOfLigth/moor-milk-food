@@ -1,4 +1,5 @@
 @use './mixins/mixins.scss' as *;
+@use './utils/helperFunctions.scss' as *;
 
 header {
   @include headerStyle;
@@ -11,7 +12,7 @@ main {
     position: relative;
     background-color: #f1dbad;
     width: 100vw;
-    height: clamp(300px, 85vh, 800px);
+    height: clamp(300px, 80vh, 800px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -24,14 +25,14 @@ main {
       background-color: rgba(0, 0, 0, 0.4);
       backdrop-filter: saturate(180%) blur(3px);
       border-radius: 20px;
-      padding: clamp(20px, 4vw, 120px);
-      margin-left: clamp(30px, 6vw, 120px);
+      padding: adaptiveSize(1.25, 7.5);
+      margin-left: adaptiveSize(1.87, 7.5);
       color: white;
       width: 50%;
       max-width: 1000px;
 
       h1 {
-        margin-bottom: 28px;
+        margin-bottom: adaptiveSize(1.25, 1.87);
       }
 
       h4 {
@@ -51,7 +52,7 @@ main {
   }
 
   .main_product-assortment {
-    padding: 8% 0;
+    padding: adaptiveSize(1.56, 7.18) 0;
     width: 85%;
     margin: 0 auto;
     display: flex;
@@ -70,15 +71,41 @@ main {
     .product-assortment_products {
       width: 100%;
       max-width: 2280px;
-      margin: clamp(25px, 4vw, 70px) auto;
+      margin: adaptiveSize(1.56, 4.3) auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: clamp(25px, 4vw, 40px) clamp(30px, 6vw, 70px);
+      gap: adaptiveSize(1.25, 2.5) adaptiveSize(1.87, 7.5);
 
       .products_product-card {
         @include productCard;
         margin: 0 auto;
       }
+    }
+  }
+
+  .main_scroll-to-top {
+    width: adaptiveSize(3.1, 5.31);
+    height: adaptiveSize(3.1, 5.31);
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-out, bottom 0.4s ease-out;
+    cursor: pointer;
+
+    &.visible {
+      opacity: 1;
+      bottom: 10%;
+      pointer-events: auto;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }

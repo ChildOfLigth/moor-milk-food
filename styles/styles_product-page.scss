@@ -1,8 +1,10 @@
+@use "./utils/helperFunctions.scss" as *;
+
 .navigate-to-prev-page {
     cursor: pointer;
     display: block;
     margin-right: auto;
-    margin: clamp(20px, 2vw, 50px);
+    margin: adaptiveSize(1.25, 3.12);
     width: 5vw;
     min-width: 30px;
     max-width: 50px;
@@ -18,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(40px, 7vh, 60px);
+    gap: adaptiveSize(2.5, 3.75);
     margin: 0 auto;
 
     .info-product_description {
@@ -35,7 +37,7 @@
             align-items: center;
             justify-content: space-between;
             text-align: left;
-            gap: clamp(20px, 3vh, 50px);
+            gap: adaptiveSize(1.25, 3.12);
 
             .text-content_title {
                 width: 100%;
@@ -65,12 +67,12 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
-                    font-size: clamp(0.75rem, 0.58rem + 0.81vw, 1.56rem);
+                    font-size: adaptiveSize(0.75, 1.56);
 
                     &::before {
                         content: "";
                         display: block;
-                        width: clamp(20px, 5%, 50px);
+                        width: adaptiveSize(1.25, 3.12);
                         aspect-ratio: 1 / 1;
                         background-image: url('../imgs/icons/paws.svg');
                         background-size: contain;
@@ -83,6 +85,7 @@
         .swiper {
             width: 35%;
             min-width: 250px;
+            margin-top: adaptiveSize(1.25, 2.81);
             display: block;
             border-radius: 20px;
             overflow: hidden;
@@ -109,7 +112,7 @@
         justify-content: left;
         gap: 5vh;
         width: 100%;
-        padding: clamp(15px, 4vw, 60px);
+        padding: adaptiveSize(0.93, 3.75);
         background-color: rgba(160, 144, 107, 0.5);
 
         .composition-product_content {
@@ -145,7 +148,15 @@
     .info-product {
         .info-product_composition-product {
             .composition-product_content {
-                width: 100%;
+                width: 90%;
+
+                h2 {
+                    font-size: 23px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
             }
         }
     }

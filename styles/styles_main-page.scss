@@ -1,4 +1,5 @@
 @use './mixins/mixins.scss' as *;
+@use './utils/helperFunctions.scss' as *;
 
 header {
   @include headerStyle;
@@ -40,11 +41,16 @@ main {
           .slide_present-photo {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
             z-index: -1;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
 
           .slide_text-part {
@@ -77,7 +83,7 @@ main {
             }
 
             .text-part_navigate-to-menu {
-              @include customButton(37%, 6vw, 50px);
+              @include customButton(37%, 200px, 6vw, 50px);
             }
           }
         }
@@ -96,12 +102,12 @@ main {
     box-sizing: border-box;
 
     .about-products_text-part {
-      padding: clamp(25px, 4vh, 45px);
+      padding: adaptiveSize(1.7, 2.81);
       width: 60%;
 
       h2 {
         font-weight: 600;
-        margin-bottom: clamp(13px, 3vh, 35px);
+        margin-bottom: adaptiveSize(0.81, 2.2);
       }
 
       p {
@@ -123,28 +129,36 @@ main {
         position: relative;
       }
 
-      .decoration-part_img-for-animation {
-        width: clamp(80px, 10%, 180px);
-        scale: 0.7;
-        aspect-ratio: 1 / 1;
+      .decoration-part_img-with-animation {
         position: absolute;
-        top: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: left;
+        top: 20%;
         left: 70%;
-        transform: rotate(25deg);
-        animation: pulseHeart 1.3s ease infinite;
-      }
 
-      @keyframes pulseHeart {
-        0% {
-          scale: 0.7;
-        }
+        img {
+          position: relative;
+          aspect-ratio: 1 / 1;
 
-        50% {
-          scale: 1;
-        }
+          &:nth-child(1) {
+            width: clamp(25px, 15%, 90px);
+            top: 0;
+            transform: rotate(-10deg);
+          }
 
-        100% {
-          scale: 0.7;
+          &:nth-child(2) {
+            width: clamp(38px, 27%, 120px);
+            top: 15%;
+            left: 17%;
+          }
+
+          &:nth-child(3) {
+            width: clamp(60px, 40%, 150px);
+            top: 24%;
+            transform: rotate(25deg);
+          }
         }
       }
     }
@@ -208,8 +222,8 @@ main {
       flex-wrap: wrap;
       justify-content: center;
       align-items: stretch;
-      gap: clamp(25px, 2vw, 40px);
-      margin: clamp(20px, 0.71rem + 2.68vw, 50px);
+      gap: adaptiveSize(1.56, 2.5);
+      margin: adaptiveSize(1.25, 3.12);
       opacity: 0;
       transition: all 0.6s;
 
@@ -251,7 +265,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(25px, 3.5vh, 65px) 0;
+    padding: adaptiveSize(1.56, 4) 0;
 
     .our-advantages_decoration-block {
       display: flex;
@@ -288,10 +302,10 @@ main {
     .our-advantages_list-of-reasons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: clamp(40px, 4vw, 60px);
+      gap: adaptiveSize(2.5, 3.75);
       width: 80%;
       height: auto;
-      margin: clamp(25px, 4svh, 80px) auto;
+      margin: adaptiveSize(1.56, 5) auto;
 
       .list-of-reasons_elem {
         text-align: center;
@@ -335,21 +349,6 @@ footer {
   }
 }
 
-@media (max-width: 1180px) {
-  main {
-    .main_about-products {
-      .about-products_decoration-part {
-        display: none;
-      }
-
-      .about-products_text-part {
-        width: 100%;
-        border-radius: 0;
-      }
-    }
-  }
-}
-
 @media (max-width: 950px) {
   main {
     .main_present-block {
@@ -371,6 +370,17 @@ footer {
 
 @media (max-width: 900px) {
   main {
+    .main_about-products {
+      .about-products_decoration-part {
+        display: none;
+      }
+
+      .about-products_text-part {
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+
     .main_our-advantages {
       .our-advantages_list-of-reasons {
         .list-of-reasons_elem {

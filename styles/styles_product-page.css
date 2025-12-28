@@ -2,7 +2,7 @@
   cursor: pointer;
   display: block;
   margin-right: auto;
-  margin: clamp(20px, 2vw, 50px);
+  margin: clamp(1.25rem, 14.016px + 1.87vw, 3.12rem);
   width: 5vw;
   min-width: 30px;
   max-width: 50px;
@@ -24,7 +24,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: clamp(40px, 7vh, 60px);
+  gap: clamp(2.5rem, 36px + 1.25vw, 3.75rem);
   margin: 0 auto;
 }
 .info-product .info-product_description {
@@ -56,7 +56,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: left;
-  gap: clamp(20px, 3vh, 50px);
+  gap: clamp(1.25rem, 14.016px + 1.87vw, 3.12rem);
 }
 .info-product .info-product_description .description_text-content .text-content_title {
   width: 100%;
@@ -94,12 +94,12 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
-  font-size: clamp(0.75rem, 0.58rem + 0.81vw, 1.56rem);
+  font-size: clamp(0.75rem, 9.408px + 0.81vw, 1.56rem);
 }
 .info-product .info-product_description .description_text-content .description_additional-additives .additional-additives_item::before {
   content: "";
   display: block;
-  width: clamp(20px, 5%, 50px);
+  width: clamp(1.25rem, 14.016px + 1.87vw, 3.12rem);
   aspect-ratio: 1/1;
   background-image: url("../imgs/icons/paws.svg");
   background-size: contain;
@@ -108,6 +108,7 @@
 .info-product .info-product_description .swiper {
   width: 35%;
   min-width: 250px;
+  margin-top: clamp(1.25rem, 15.008px + 1.56vw, 2.81rem);
   display: block;
   border-radius: 20px;
   overflow: hidden;
@@ -139,7 +140,7 @@
           justify-content: left;
   gap: 5vh;
   width: 100%;
-  padding: clamp(15px, 4vw, 60px);
+  padding: clamp(0.93rem, 5.856px + 2.82vw, 3.75rem);
   background-color: rgba(160, 144, 107, 0.5);
 }
 .info-product .info-product_composition-product .composition-product_content {
@@ -178,6 +179,12 @@
 }
 @media (max-width: 550px) {
   .info-product .info-product_composition-product .composition-product_content {
-    width: 100%;
+    width: 90%;
+  }
+  .info-product .info-product_composition-product .composition-product_content h2 {
+    font-size: 23px;
+  }
+  .info-product .info-product_composition-product .composition-product_content p {
+    font-size: 12px;
   }
 }

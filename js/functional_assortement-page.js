@@ -19,3 +19,26 @@ productCatalog.innerHTML = dataProducts.map((prod, index) => `
 
 sendCurrentProductData(dataProducts, productCatalog, ".products_product-card");
 functionForMenuBurger();
+
+const buttonByScrollToTop = document.querySelector(".main_scroll-to-top");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = scrollTop / docHeight;
+
+  if (scrollPercent > 0.3) {
+    buttonByScrollToTop.classList.add("visible");
+  } else {
+    buttonByScrollToTop.classList.remove("visible");
+  }
+});
+
+const startPoitionElement = productCatalog.offsetTop;
+
+buttonByScrollToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: startPoitionElement - 30,
+    behavior: "smooth",
+  });
+});

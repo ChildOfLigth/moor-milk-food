@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="../styles/changeGlobalStyle/resetBrowserStyle.css">
+  <link rel="stylesheet" href="../styles/changeGlobalStyle/globalStyle.css">
   <link rel="stylesheet" href="styles/styles_main-page.css" />
-  <link rel="stylesheet" href="styles/resetBrowserStyles.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <title>MooreMilk</title>
 </head>
@@ -15,18 +16,18 @@
     <div class="header-content">
       <img src="imgs/icons/logo.svg" alt="Company logotype" class="header-logotypy" />
 
-      <nav class="header-content_navigate-links">
-        <div class="navigate-links_item">
-          <a href="index.html">Головна</a>
-        </div>
+      <nav class="navigate-links">
+        <a class="navigate-links_item" href="index.html">
+          <p>Головна</p>
+        </a>
 
-        <div class="navigate-links_item">
-          <a href="/pages/assortement.html">Асортимент</a>
-        </div>
+        <a class="navigate-links_item" href="/pages/assortement.html">
+          <p>Асортимент</p>
+        </a>
 
-        <div class="navigate-links_item">
-          <a href="/pages/social-project.html">Соціальна підтримка</a>
-        </div>
+        <a class="navigate-links_item" href="/pages/social-project.html">
+          <p>Соціальна підтримка</p>
+        </a>
       </nav>
 
       <div class="header-content_social-media-list">
@@ -40,18 +41,18 @@
       </div>
 
       <div class="header-content_content-open-menu-burger">
-        <nav class="header-content_navigate-links">
-          <div class="navigate-links_item">
-            <a href="index.html">Головна</a>
-          </div>
+        <nav class="navigate-links">
+          <a class="navigate-links_item" href="index.html">
+            <p>Головна</p>
+          </a>
 
-          <div class="navigate-links_item">
-            <a href="/pages/assortement.html">Асортимент</a>
-          </div>
+          <a class="navigate-links_item" href="/pages/assortement.html">
+            <p>Асортимент</p>
+          </a>
 
-          <div class="navigate-links_item">
-            <a href="/pages/social-project.html">Соціальна підтримка</a>
-          </div>
+          <a class="navigate-links_item" href="/pages/social-project.html">
+            <p>Соціальна підтримка</p>
+          </a>
         </nav>
 
         <div class="header-content_social-media-list">
@@ -67,9 +68,12 @@
     <div class="main_present-block">
       <div class="swiper">
         <div class="swiper-wrapper">
+
           <div class="swiper-slide">
-            <img src="imgs/present-photo-1_for-small-screen.webp" alt="Present photo with cat"
-              class="slide_present-photo" />
+            <div class="slide_present-photo">
+              <img src="imgs/present-photo-1_for-small-screen.webp" alt="Present photo with cat" />
+            </div>
+
             <div class="slide_text-part">
               <h1><span>MooreMilk</span> справжня спокуса</h1>
               <h3>
@@ -85,7 +89,9 @@
           </div>
 
           <div class="swiper-slide">
-            <img src="imgs/present-photo-2.webp" alt="Present photo with cat" class="slide_present-photo" />
+            <div class="slide_present-photo">
+              <img src="imgs/present-photo-2.webp" alt="Present photo with cat" />
+            </div>
 
             <div class="slide_text-part">
               <h1><span>MooreMilk</span> для вашего кошеняти</h1>
@@ -106,7 +112,11 @@
       <div class="about-products_decoration-part">
         <img src="imgs/cat-for-aboutUs.webp" alt="" class="decoration-part_decoration-img" />
 
-        <img src="imgs/icons/heart-icon-for-animate.svg" alt="" class="decoration-part_img-for-animation" />
+        <div class="decoration-part_img-with-animation">
+          <img src="imgs/icons/heart-icon-for-animate.svg" alt="" />
+          <img src="imgs/icons/heart-icon-for-animate.svg" alt="" />
+          <img src="imgs/icons/heart-icon-for-animate.svg" alt="" />
+        </div>
       </div>
 
       <div class="about-products_text-part">
@@ -172,8 +182,8 @@
           </a>
         </article>
 
-        <article class="products-list_product-card" data-product_id="3">
-          <img src="imgs/productions/korm-with-chicken-smalKitten.png" alt="Пакет корма зі курки" />
+        <article class="products-list_product-card" data-product_id="5">
+          <img src="imgs/productions/korm-with-chicken-smalKitten.png" alt="Пакет корма зі смаком курки" />
           <div class="product-card_text-part">
             <h4>Корм зі смаком курки</h4>
             <p>для кошеняток</p>
@@ -223,8 +233,6 @@
   </main>
 
   <footer>
-    <img src="imgs/icons/logo.svg" alt="Company logotype" class="footer_logo" />
-
     <div class="footer_text-content">
       <div class="text-content_links-navigation">
         <a href="index.html">Головна</a>
@@ -239,6 +247,12 @@
         <li>м. Чернігів вул Самоквасова 29</li>
       </ul>
     </div>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158973.22028267314!2d31.12572908757912!3d51.495664516245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d5488971ee3597%3A0x2a2348d3e76038b5!2z0KfQtdGA0L3QuNCz0L7Qsiwg0KfQtdGA0L3QuNCz0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAxNDAwMA!5e0!3m2!1sru!2sua!4v1766925572619!5m2!1sru!2sua"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="footer_map">
+    </iframe>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

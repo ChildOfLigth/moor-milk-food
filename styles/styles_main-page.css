@@ -28,7 +28,7 @@ header .header-content .header-logotypy {
   aspect-ratio: 1/1;
   display: block;
 }
-header .header-content .header-content_navigate-links {
+header .header-content .navigate-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,50 +38,53 @@ header .header-content .header-content_navigate-links {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: auto;
   height: 100%;
   gap: clamp(18px, 3vw, 50px);
 }
-header .header-content .header-content_navigate-links .navigate-links_item {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+header .header-content .navigate-links .navigate-links_item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-header .header-content .header-content_navigate-links .navigate-links_item a {
-  position: relative;
-  display: inline-block;
   top: 0;
   color: white;
   font-weight: 600;
-  font-size: var(--fsz-for-link-text);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-}
-header .header-content .header-content_navigate-links .navigate-links_item::after {
-  content: "";
   position: relative;
+}
+header .header-content .navigate-links .navigate-links_item::before {
+  content: "";
+  position: absolute;
   left: 0;
-  top: 5px;
+  bottom: -6px;
   display: block;
-  margin-top: 4px;
   width: 0;
   height: 2px;
   background-color: white;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-header .header-content .header-content_navigate-links .navigate-links_item:hover a {
+header .header-content .navigate-links .navigate-links_item p {
+  -webkit-transition: top 0.4s;
+  transition: top 0.4s;
+  position: relative;
+  top: 0;
+  font-size: var(--fsz-for-link-text);
+}
+header .header-content .navigate-links .navigate-links_item:hover p {
   top: -5px;
 }
-header .header-content .header-content_navigate-links .navigate-links_item:hover::after {
+header .header-content .navigate-links .navigate-links_item:hover::before {
   width: 100%;
 }
 header .header-content .header-content_social-media-list {
@@ -147,54 +150,6 @@ header .header-content .header-content_content-open-menu-burger.show {
   opacity: 1;
   visibility: visible;
 }
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links {
-  display: none;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links .navigate-links_item {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links .navigate-links_item a {
-  position: relative;
-  display: inline-block;
-  top: 0;
-  color: white;
-  font-weight: 600;
-  font-size: var(--fsz-for-link-text);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links .navigate-links_item::after {
-  content: "";
-  position: relative;
-  left: 0;
-  top: 5px;
-  display: block;
-  margin-top: 4px;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links .navigate-links_item:hover a {
-  top: -5px;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_navigate-links .navigate-links_item:hover::after {
-  width: 100%;
-}
-header .header-content .header-content_content-open-menu-burger .header-content_social-media-list {
-  display: none;
-}
 header .header-content .social-media-list_logo {
   width: 20%;
   max-width: 90px;
@@ -215,7 +170,7 @@ header .header-content .social-media-list_logo:hover {
         -ms-flex-align: center;
             align-items: center;
   }
-  header .header-content .header-content_navigate-links {
+  header .header-content .navigate-links {
     display: none;
   }
   header .header-content .header-content_social-media-list {
@@ -252,7 +207,7 @@ header .header-content .social-media-list_logo:hover {
             justify-content: center;
     gap: clamp(13px, 5vh, 30px);
   }
-  header .header-content .header-content_content-open-menu-burger .header-content_navigate-links {
+  header .header-content .header-content_content-open-menu-burger .navigate-links {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -317,12 +272,16 @@ main .main_present-block .swiper .swiper-wrapper .swiper-slide:nth-child(1) .sli
 main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_present-photo {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+}
+main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_present-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_text-part {
   display: -webkit-box;
@@ -359,7 +318,7 @@ main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_text-part 
 }
 main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_text-part .text-part_navigate-to-menu {
   height: clamp(50px, 6vw, 65px);
-  width: clamp(130px, 37%, 280px);
+  width: clamp(200px, 37%, 280px);
   background-color: var(--default-color-two);
   border: none;
   position: relative;
@@ -384,7 +343,7 @@ main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_text-part 
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   color: black;
-  font-size: var(--fsz-for-link-text);
+  font-size: clamp(1rem, 14.72px + 0.4vw, 1.4rem);
 }
 main .main_present-block .swiper .swiper-wrapper .swiper-slide .slide_text-part .text-part_navigate-to-menu span {
   position: absolute;
@@ -427,12 +386,12 @@ main .main_about-products {
           box-sizing: border-box;
 }
 main .main_about-products .about-products_text-part {
-  padding: clamp(25px, 4vh, 45px);
+  padding: clamp(1.7rem, 23.648px + 1.11vw, 2.81rem);
   width: 60%;
 }
 main .main_about-products .about-products_text-part h2 {
   font-weight: 600;
-  margin-bottom: clamp(13px, 3vh, 35px);
+  margin-bottom: clamp(0.81rem, 8.512px + 1.39vw, 2.2rem);
 }
 main .main_about-products .about-products_text-part p {
   display: inline-block;
@@ -454,39 +413,44 @@ main .main_about-products .about-products_decoration-part .decoration-part_decor
   aspect-ratio: 1/1;
   position: relative;
 }
-main .main_about-products .about-products_decoration-part .decoration-part_img-for-animation {
-  width: clamp(80px, 10%, 180px);
-  scale: 0.7;
-  aspect-ratio: 1/1;
+main .main_about-products .about-products_decoration-part .decoration-part_img-with-animation {
   position: absolute;
-  top: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  top: 20%;
   left: 70%;
+}
+main .main_about-products .about-products_decoration-part .decoration-part_img-with-animation img {
+  position: relative;
+  aspect-ratio: 1/1;
+}
+main .main_about-products .about-products_decoration-part .decoration-part_img-with-animation img:nth-child(1) {
+  width: clamp(25px, 15%, 90px);
+  top: 0;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+main .main_about-products .about-products_decoration-part .decoration-part_img-with-animation img:nth-child(2) {
+  width: clamp(38px, 27%, 120px);
+  top: 15%;
+  left: 17%;
+}
+main .main_about-products .about-products_decoration-part .decoration-part_img-with-animation img:nth-child(3) {
+  width: clamp(60px, 40%, 150px);
+  top: 24%;
   -webkit-transform: rotate(25deg);
           transform: rotate(25deg);
-  -webkit-animation: pulseHeart 1.3s ease infinite;
-          animation: pulseHeart 1.3s ease infinite;
-}
-@-webkit-keyframes pulseHeart {
-  0% {
-    scale: 0.7;
-  }
-  50% {
-    scale: 1;
-  }
-  100% {
-    scale: 0.7;
-  }
-}
-@keyframes pulseHeart {
-  0% {
-    scale: 0.7;
-  }
-  50% {
-    scale: 1;
-  }
-  100% {
-    scale: 0.7;
-  }
 }
 main .main_our-menu {
   background-color: #f1dbad;
@@ -561,8 +525,8 @@ main .main_our-menu .our-menu_products-list {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  gap: clamp(25px, 2vw, 40px);
-  margin: clamp(20px, 0.71rem + 2.68vw, 50px);
+  gap: clamp(1.56rem, 21.952px + 0.94vw, 2.5rem);
+  margin: clamp(1.25rem, 14.016px + 1.87vw, 3.12rem);
   opacity: 0;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
@@ -660,7 +624,7 @@ main .main_our-menu .our-menu_products-list .products-list_product-card a p {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   color: black;
-  font-size: var(--fsz-for-link-text);
+  font-size: clamp(1rem, 14.72px + 0.4vw, 1.4rem);
 }
 main .main_our-menu .our-menu_products-list .products-list_product-card a span {
   position: absolute;
@@ -701,7 +665,7 @@ main .main_our-advantages {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: clamp(25px, 3.5vh, 65px) 0;
+  padding: clamp(1.56rem, 17.152px + 2.44vw, 4rem) 0;
 }
 main .main_our-advantages .our-advantages_decoration-block {
   display: -webkit-box;
@@ -740,10 +704,10 @@ main .main_our-advantages .our-advantages_list-of-reasons {
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: clamp(40px, 4vw, 60px);
+  gap: clamp(2.5rem, 36px + 1.25vw, 3.75rem);
   width: 80%;
   height: auto;
-  margin: clamp(25px, 4svh, 80px) auto;
+  margin: clamp(1.56rem, 13.952px + 3.44vw, 5rem) auto;
 }
 main .main_our-advantages .our-advantages_list-of-reasons .list-of-reasons_elem {
   text-align: center;
@@ -763,25 +727,22 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  padding: clamp(30px, 7vw, 80px);
-  gap: clamp(25px, 8vw, 90px);
-}
-footer .footer_logo {
-  width: clamp(50px, 15%, 120px);
-  aspect-ratio: 1/1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: clamp(1.87rem, 19.904px + 3.13vw, 5rem);
+  gap: clamp(1.56rem, 12.032px + 4.04vw, 5.6rem);
 }
 footer .footer_text-content {
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 45%;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  gap: clamp(25px, 4vw, 70px);
+  gap: clamp(1.56rem, 15.968px + 2.81vw, 4.37rem);
 }
 footer .footer_text-content .text-content_links-navigation {
   display: -webkit-box;
@@ -794,15 +755,13 @@ footer .footer_text-content .text-content_links-navigation {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  gap: clamp(15px, 2vw, 30px);
+  gap: clamp(0.93rem, 12.096px + 0.87vw, 1.8rem);
 }
 footer .footer_text-content .text-content_links-navigation a {
   position: relative;
   display: inline-block;
   top: 0;
   color: white;
-  font-weight: 600;
-  font-size: var(--fsz-for-link-text);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -811,21 +770,46 @@ footer .footer_text-content .text-content_our-data {
   padding: 0;
 }
 footer .footer_text-content .text-content_our-data li {
-  font-size: var(--fsz-for-link-text);
+  font-size: clamp(0.9rem, 12.48px + 0.6vw, 1.5rem);
   font-weight: 500;
   margin-bottom: 17px;
 }
-@media (max-width: 830px) {
-  footer .footer_logo {
-    display: none;
+footer .footer_map {
+  width: 45%;
+  height: clamp(220px, 25vw, 350px);
+  display: block;
+  border-radius: 10px;
+}
+@media (max-width: 1132px) {
+  footer {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
-@media (max-width: 630px) {
-  footer .footer_text-content {
+@media (max-width: 890px) {
+  footer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  footer .footer_text-content {
+    width: 88%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .footer_map {
+    width: 100%;
+    border-radius: 0;
   }
 }
 
@@ -835,15 +819,6 @@ footer .footer_text-content .text-content_our-data li {
   }
   main .main_about-products .about-products_decoration-part {
     width: 40%;
-  }
-}
-@media (max-width: 1180px) {
-  main .main_about-products .about-products_decoration-part {
-    display: none;
-  }
-  main .main_about-products .about-products_text-part {
-    width: 100%;
-    border-radius: 0;
   }
 }
 @media (max-width: 950px) {
@@ -856,6 +831,13 @@ footer .footer_text-content .text-content_our-data li {
   }
 }
 @media (max-width: 900px) {
+  main .main_about-products .about-products_decoration-part {
+    display: none;
+  }
+  main .main_about-products .about-products_text-part {
+    width: 100%;
+    border-radius: 0;
+  }
   main .main_our-advantages .our-advantages_list-of-reasons .list-of-reasons_elem .icon_reasons {
     width: 100px;
   }

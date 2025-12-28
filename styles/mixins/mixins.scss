@@ -1,6 +1,8 @@
-@mixin customButton($width, $heigth, $min-height) {
+@use '../utils/helperFunctions.scss' as *;
+
+@mixin customButton($width, $min-width, $heigth, $min-height) {
     height: clamp($min-height, $heigth, 65px);
-    width: clamp(130px, $width, 280px);
+    width: clamp($min-width, $width, 280px);
     background-color: var(--default-color-two);
     border: none;
     position: relative;
@@ -18,7 +20,7 @@
         left: 0;
         transition: all 0.4s ease-in-out;
         color: black;
-        font-size: var(--fsz-for-link-text);
+        font-size: adaptiveSize(1, 1.4);
     }
 
     span {
@@ -84,19 +86,7 @@
 
     a {
         margin-top: auto;
-        @include customButton(90%, 3.5vw, 32px);
-    }
-}
-
-@mixin styleForNavLink {
-    a {
-        position: relative;
-        display: inline-block;
-        top: 0;
-        color: white;
-        font-weight: 600;
-        font-size: var(--fsz-for-link-text);
-        transition: all 0.5s;
+        @include customButton(90%, 130px, 3.5vw, 32px);
     }
 }
 
@@ -125,40 +115,49 @@
             display: block;
         }
 
-        .header-content_navigate-links {
+        .navigate-links {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: auto;
             height: 100%;
             gap: clamp(18px, 3vw, 50px);
 
             .navigate-links_item {
-                position: relative;
-                display: flex;
+                display: inline-flex;
                 align-items: center;
+                justify-content: center;
                 flex-direction: column;
-                @include styleForNavLink;
+                top: 0;
+                color: white;
+                font-weight: 600;
+                transition: all 0.5s;
+                position: relative;
 
-                &::after {
+                &::before {
                     content: "";
-                    position: relative;
+                    position: absolute;
                     left: 0;
-                    top: 5px;
+                    bottom: -6px;
                     display: block;
-                    margin-top: 4px;
                     width: 0;
                     height: 2px;
                     background-color: white;
                     transition: all 0.5s;
                 }
 
+                p {
+                    transition: top 0.4s;
+                    position: relative;
+                    top: 0;
+                    font-size: var(--fsz-for-link-text);
+                }
+
                 &:hover {
-                    a {
+                    p {
                         top: -5px;
                     }
 
-                    &::after {
+                    &::before {
                         width: 100%;
                     }
                 }
@@ -232,45 +231,6 @@
                 opacity: 1;
                 visibility: visible;
             }
-
-            .header-content_navigate-links {
-                display: none;
-
-                .navigate-links_item {
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    @include styleForNavLink;
-
-                    &::after {
-                        content: "";
-                        position: relative;
-                        left: 0;
-                        top: 5px;
-                        display: block;
-                        margin-top: 4px;
-                        width: 0;
-                        height: 2px;
-                        background-color: white;
-                        transition: all 0.5s;
-                    }
-
-                    &:hover {
-                        a {
-                            top: -5px;
-                        }
-
-                        &::after {
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-
-            .header-content_social-media-list {
-                display: none;
-            }
         }
 
         .social-media-list_logo {
@@ -291,7 +251,7 @@
             display: flex;
             align-items: center;
 
-            .header-content_navigate-links {
+            .navigate-links {
                 display: none;
             }
 
@@ -313,7 +273,7 @@
                 justify-content: center;
                 gap: clamp(13px, 5vh, 30px);
 
-                .header-content_navigate-links {
+                .navigate-links {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -336,27 +296,30 @@
     height: auto;
     background-color: #a0906b;
     display: flex;
-    align-items: start;
-    padding: clamp(30px, 7vw, 80px);
-    gap: clamp(25px, 8vw, 90px);
-
-    .footer_logo {
-        width: clamp(50px, 15%, 120px);
-        aspect-ratio: 1 / 1;
-    }
+    align-items: center;
+    padding: adaptiveSize(1.87, 5);
+    gap: adaptiveSize(1.56, 5.6);
 
     .footer_text-content {
         color: white;
         display: flex;
+        width: 45%;
         align-items: start;
-        gap: clamp(25px, 4vw, 70px);
+        gap: adaptiveSize(1.56, 4.37);
 
         .text-content_links-navigation {
             display: flex;
             flex-direction: column;
             align-items: start;
-            gap: clamp(15px, 2vw, 30px);
-            @include styleForNavLink;
+            gap: adaptiveSize(0.93, 1.8);
+
+            a {
+                position: relative;
+                display: inline-block;
+                top: 0;
+                color: white;
+                transition: all 0.5s;
+            }
         }
 
         .text-content_our-data {
@@ -364,22 +327,39 @@
             padding: 0;
 
             li {
-                font-size: var(--fsz-for-link-text);
+                font-size: adaptiveSize(0.9, 1.5);
                 font-weight: 500;
                 margin-bottom: 17px;
             }
         }
     }
 
-    @media (max-width: 830px) {
-        .footer_logo {
-            display: none;
-        }
+    .footer_map {
+        width: 45%;
+        height: clamp(220px, 25vw, 350px);
+        display: block;
+        border-radius: 10px;
+    }
+    
+    @media (max-width: 1132px) {
+        justify-content: space-between;
     }
 
-    @media (max-width: 630px) {
+    @media (max-width: 890px) {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+
         .footer_text-content {
+            width: 88%;
             flex-direction: column;
+        }
+
+        .footer_map {
+            width: 100%;
+            border-radius: 0;
         }
     }
 }

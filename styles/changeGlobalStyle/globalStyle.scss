@@ -1,0 +1,33 @@
+@use '../utils/helperFunctions.scss' as *;
+
+:root {
+  --default-color-one: #a0906b;
+  --default-color-two: #bda778;
+  --fsz-for-link-text: adaptiveSize(0.9, 1.55);
+}
+
+h1 {
+  font-size: adaptiveSize(2.18, 3.75);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: adaptiveSize(1.81, 2.81);
+}
+
+h3 {
+  font-size: adaptiveSize(1.5, 2.06);
+}
+
+h4 {
+  font-size: adaptiveSize(1.12, 1.81);
+}
+
+p {
+  font-size: adaptiveSize(0.9, 1.73);
+  line-height: 1.5;
+}
+
+a {
+  font-size: adaptiveSize(0.9, 1.5);
+}
